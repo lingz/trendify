@@ -37,6 +37,7 @@ if (Meteor.is_client) {
   // 
   // Template.welcome.username = function() { return Session.get('username'); };
   // 
+
   // Template.welcome.events = {
   // 
   //   'submit form': function(event, template) {
