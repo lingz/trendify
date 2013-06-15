@@ -1,10 +1,11 @@
 build_graph = function( term ) {
 	Bitly.get_story_from_phrases( [ term ], function( err, data ) {
+		console.log( data );
 		Bitly.get_story_merged_history( data.story_id, {start: new Date('2013-06-10')}, function( err, history ) {
 			
-			var margin = {top: 20, right: 20, bottom: 30, left: 50},
-				 width = 960 - margin.left - margin.right,
-			    height = 500 - margin.top - margin.bottom;
+			var margin = {top: 20, right: 20, bottom: 30, left: 20},
+				 width = 500 - margin.left - margin.right,
+			    height = 300 - margin.top - margin.bottom;
 
 			// var parseDate = d3.time.format("%d-%b-%y").parse;
 
@@ -35,7 +36,7 @@ build_graph = function( term ) {
 
 			_.each( history, function( h ) {
 
-				console.log( h );
+				// console.log( h );
 				// h.date = h
 				
 			});
@@ -64,14 +65,33 @@ build_graph = function( term ) {
 			  	// 		    	.text("Price ($)");
 			
 		
-			console.log( err, history );
+			// console.log( err, history );
 		});
 	});
 }
 
-Meteor.startup(function() {
+
+run_analysis = function( url ) {
 	
-	build_graph( 'kanye' );
+	// SOMEHOW THIS GETS THE LIST OF NEIGHBORS; they have to be just the first bit? apparently long strings aren't supported....
+	neighbors = ['samsung', 'lumia'];
+	
+	_.each( neighbors, function( neigh ) {
+		build_graph( neigh );
+	} );
+	
+	// console.log( url );
+	// Meteor.call( 'sociocast', url, function( err, response ) {
+	// 	
+	// 	console.log( Taxonomy.findOne( {'name': response } ) );
+	// 	
+	// 	console.log( response );
+	// });
+}
+
+Meteor.startup(function() {
+		
+	run_analysis( 'http://apple.com/iphone/' );
 	
 	// so you can know if you've successfully in-browser browsed
 	// console.log('Started at ' + location.href);
