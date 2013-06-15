@@ -1,5 +1,5 @@
 build_graph = function( term ) {
-	Bitly.get_story_from_phrases( ['kanye'], function( err, data ) {
+	Bitly.get_story_from_phrases( [ term ], function( err, data ) {
 		Bitly.get_story_merged_history( data.story_id, {start: new Date('2013-06-10')}, function( err, history ) {
 			
 			var margin = {top: 20, right: 20, bottom: 30, left: 50},
