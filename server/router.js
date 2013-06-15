@@ -23,10 +23,9 @@ if (Meteor.isServer) {
 		},
     '/load': function() {
       arr = this.request.body;
-      console.log(arr.length);
 
-      for (var input in arr) {
-        console.log("running");
+      for (var pos in arr) {
+        input = arr[pos];
         entry = {
           name: input[input.length - 1],
           father: input.length > 1 ? input[input.length - 2] : null
