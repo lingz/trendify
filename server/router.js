@@ -33,5 +33,12 @@ if (Meteor.isServer) {
     }
       
 	});
+	
+	Meteor.startup(function () {
+		var require = __meteor_bootstrap__.require;
+		Future = require('fibers/future');
+	
+		// use Future here
+	});
 
 }

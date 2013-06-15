@@ -1,11 +1,9 @@
-function build_graph( term ) {
-	Bitly.get_story_from_phrases( [term], function( err, data ) {
-		// console.log( data );
-		Bitly.get_story_merged_history( data.story_id, {start: new Date('2013-06-10')}, function( err, history ) {
-			console.log( history );
-		});
-		// return story;
+Meteor.startup(function() {
+	
+	Meteor.call( 'get_history', 'obama', function( err, history ) {
+		console.log( err, history );
 	});
-}
-
-build_graph( 'kanye' );
+	
+	// so you can know if you've successfully in-browser browsed
+	// console.log('Started at ' + location.href);
+});
