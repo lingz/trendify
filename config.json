@@ -1,6 +1,0 @@
-{
-    "bitly": {
-        "endpoint": "https://api-ssl.bitly.com/v3/",
-        "token":  "542affb2809377ef813caeae7f6542a49a2071d8"
-    }
-}
