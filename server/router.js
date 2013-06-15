@@ -1,4 +1,7 @@
 if (Meteor.isServer) {
+	
+	console.log(Taxonomy.findOne( {} ));
+	
 	Meteor.Router.add({
 		'/get_history/for/:term': function( term ) {
 						
@@ -16,7 +19,6 @@ if (Meteor.isServer) {
 			// return Meteor.settings.bitly.token;
 		},
 		'/second-test-endpoint': function() {
-			console.log(this.request.body);
 			return 'foo';
 		},
     '/load': function() {
