@@ -1,8 +1,14 @@
-//parses one line of the taxonomy files and returns an array of the results
-// parses on line of the taxonomy and returns the array contained
-var parseLine = function(line) {
-  var patt = new RegExp("\[([^]]+)\]");
-  return patt;
-};
+if (Taxonomy.find().count() === 0) {
+  //parses one line of the taxonomy files and returns an array of the results
+  var parseLine = function(line) {
+    var patt = /\[([^\]]+)\]/;
+    return patt.exec(line)[1].split(",");
+  };
 
-console.log(parseLine("hello [1,2,3]"));
+  var tax = new File("taxonomy.txt").open();
+  console.log(tax.readln());
+  
+
+}
+
+
