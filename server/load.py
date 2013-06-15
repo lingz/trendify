@@ -22,6 +22,5 @@ with open(__path) as f:
     if data:
       data = json.dumps(data.group(1).split(','))
       r = requests.post(__endpoint, data=data, headers=headers)
-      print(data)
       print("%d objects posted" % count)
 

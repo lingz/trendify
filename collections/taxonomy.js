@@ -2,8 +2,8 @@ Taxonomy = new Meteor.Collection('taxonomy');
 
 Meteor.methods({
   'findSiblings': function(child) {
-    children = _.without(Taxonomy.find(child.father).fetch(), child);
+    siblings = _.without(Taxonomy.find({father: child.father}).fetch(), child);
 
-    return children;
+    return siblings;
   }
 });
