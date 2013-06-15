@@ -16,11 +16,15 @@ patt = re.compile('\[([^\]]+)\]')
 count = 0
 
 with open(__path) as f:
+  res = []
   for line in f:
     count += 1
     data = patt.search(line)
     if data:
-      data = json.dumps(data.group(1).split(','))
-      r = requests.post(__endpoint, data=data, headers=headers)
+      data = data.group(1).split(',')
+      res.append(data)
       print("%d objects posted" % count)
+    if count % 1000 == 0:
+      r = requests.post(__endpoint, data=json.dumps(res), headers=headers)
+      res = []
 

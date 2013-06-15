@@ -22,12 +22,17 @@ if (Meteor.isServer) {
 			return 'foo';
 		},
     '/load': function() {
-      input = this.request.body;
-      entry = {
-        name: input[input.length - 1],
-        father: input.length > 1 ? input[input.length - 2] : null
-      };
-      Taxonomy.insert(entry);
+      arr = this.request.body;
+      console.log(arr.length);
+
+      for (var input in arr) {
+        console.log("running");
+        entry = {
+          name: input[input.length - 1],
+          father: input.length > 1 ? input[input.length - 2] : null
+        };
+        Taxonomy.insert(entry);
+      }
     }
       
   });
