@@ -10,7 +10,9 @@ Meteor.methods({
     if (result.statusCode == 200) {
       var classification = result.data.classification;
       var keys = Object.keys(classification);
-      return keys[keys.length - 1];
+      var res = keys[keys.length - 1].split(',');
+      var parsed = res[res.length -1].trim();
+      return parsed;
     } else if (result.statusCode == 202){
       // the result hasn't been cached, send it back and wait
       return null;

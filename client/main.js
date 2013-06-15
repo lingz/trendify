@@ -87,7 +87,7 @@ run_analysis = function( url ) {
 	// 	
 	// 	console.log( response );
 	// });
-}
+};
 
 Meteor.startup(function() {
 		
@@ -95,4 +95,8 @@ Meteor.startup(function() {
 	
 	// so you can know if you've successfully in-browser browsed
 	// console.log('Started at ' + location.href);
+});
+
+Deps.autorun(function() {
+  console.log(Session.get('results'));
 });
