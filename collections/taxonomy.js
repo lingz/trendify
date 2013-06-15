@@ -1,0 +1,1 @@
+Taxonomy = new Meteor.Collections();
