@@ -5,6 +5,7 @@
 
     <!-- Loading Bootstrap -->
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
     <!-- Loading Flat UI -->
     <link href="css/flat-ui.css" rel="stylesheet">
@@ -18,26 +19,20 @@
   </head>
   <body>
     <div class="container">
-        <div class="login-screen">
-          <div class="login-icon">
-            <img src="images/login/icon.png" alt="Welcome to Mail App" />
-            <h4>Welcome to <small>Mail App</small></h4>
-          </div>
-          <div class="login-form">
-            <div class="control-group">
-              <input type="text" class="login-field" value="" placeholder="Enter your name" id="login-name" />
-              <label class="login-field-icon fui-user" for="login-name"></label>
-            </div>
-
-            <div class="control-group">
-              <input type="password" class="login-field" value="" placeholder="Password" id="login-pass" />
-              <label class="login-field-icon fui-lock" for="login-pass"></label>
-            </div>
-
-            <a class="btn btn-primary btn-large btn-block" href="#">Login</a>
-            <a class="login-link" href="#">Lost your password?</a>
-          </div>
+      <div id="row1" class="row-fluid">
+        <div class="span12">
+          <center class="big-text">Trend.ly</center>
+          <center class="small-text">Is it trendy now?</center>
         </div>
+      </div>
+      <div class="row-fluid">
+        <form class="form-search">
+          <input type="text" value="" placeholder="Inactive" class="input-large search-query">
+        </form>
+      <div>
+      </div>
+    </div>
+  </div>
     
     <!-- Load JS here for greater good =============================-->
     <script src="js/jquery-1.8.3.min.js"></script>

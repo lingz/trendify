@@ -1,0 +1,16 @@
+body {
+  background-color: #1abc9c;
+}
+.big-text {
+  font-size: 10em;
+  font-weight: bold;
+}
+.small-text {
+  color: white;
+  font-size: 4em;
+  font-weight: 200;
+}
+
+#row1 {
+  margin-top: 100px;
+}
