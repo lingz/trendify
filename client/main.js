@@ -73,6 +73,21 @@ build_graph = function( term ) {
 
 run_analysis = function( url ) {
 	
+  Meteor.call("sociocast", url, function(err, resp) {
+    if (err) {
+      // the site can't be found? Show this?
+    } else {
+      Meteor.call("findSiblings", resp, function(err, resp){
+        if (err) {
+          // siblings can't be found! show an error message?
+        } else {
+          _.each(resp, function(node) {
+            build_graph(node.name);
+          });
+        }
+      });
+    }
+  });
 	// SOMEHOW THIS GETS THE LIST OF NEIGHBORS; they have to be just the first bit? apparently long strings aren't supported....
 	neighbors = ['samsung', 'lumia'];
 	
