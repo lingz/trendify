@@ -17,9 +17,14 @@ Meteor.methods({
       return parsed;
     } else if (result.statusCode == 202){
       // the result hasn't been cached, send it back and wait
+      var future = new Future();
+
       Meteor.setTimeout(function() {
-        return Meteor.call("sociocast", url);
+        future.ret(Meteor.call("sociocast", url));
       }, 10000);
+      
+      // blocking return
+      return future.wait();
     } else {
       throw new Meteor.Error(result.statusCode);
     }
