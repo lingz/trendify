@@ -1,4 +1,3 @@
-
 <template name="index">
     <div class="container">
       <div id="row1" class="row-fluid">
@@ -12,6 +11,9 @@
           <input type="text" value="" placeholder="Inactive" class="input-large search-query">
         </form>
       <div>
+      {{#each queryResult}}
+        {{>queryResult}}
+      {{/each}}
       </div>
     </div>
   </div>
